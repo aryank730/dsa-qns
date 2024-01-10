@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Insurance Person</title>
+   <style>
+      body {
+         justify-content: center;
+      }
+
+      .containder {
+         margin: auto;
+         padding: 1rem;
+         justify-content: center;
+         border: 2px dashed blueviolet ;
+         align-items: center;
+         background: #eaf9fe;
+         border-radius: 8px;
+      }
+      button{
+         height: 32px;
+         font-weight: bold;
+         color: #ffffff;
+         background: blueviolet;
+         border-radius: 5px;
+      }
+   </style>
+</head>
+
+<body>
+   <div class="containder">
+      <h3>Health Insurance eligibility checker</h3>
+      <label> <input type="checkbox" id="married">Married </label><br><base href="" target="">
+      <label> <input type="checkbox" id="unmarried">UnMarried </label><br>
+      <label> <input type="checkbox" id="male">Male</label><br>
+      <label> <input type="checkbox" id="female">Female </label><br> <br>
+      <label for="age"><input type="number" id="age" placeholder="Enter Your Age">  Age above (25 to 30) :</label><br><br>
+      <button onclick="checkelicgi()">Check Eligibility</button><br><br>
+      <div id="results"></div>
+   </div>
+   <script>
+      function checkelicgi() {
+         var married = document.getElementById("married").checked;
+         var unmarried = document.getElementById("unmarried").checked;
+         var male = document.getElementById("male").checked;
+         var female = document.getElementById("female").checked;
+         var age = parseInt(document.getElementById("age").value);
+
+         var eligible = false;
+
+         if (married || (male && age) > 30 || (female && age) > 25) {
+            eligible = true;
+         }
+         if (eligible) {
+            document.getElementById("results").innerHTML = "The Driver is Eligible For Insurance";
+         } else {
+            document.getElementById("results").innerHTML = "The Driver is not Eligible For Insurance";
+         }
+      }
+   </script>
+</body>
+
+</html>
